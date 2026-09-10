@@ -25,6 +25,8 @@ Il progetto implementa una piattaforma di gestione per aste online sviluppata in
 
 
 ### Repository Structure
+`docs/`: Include le relazioni del progetto e le specifiche/regole originali.
+
 `pure-html/`: Contiene l'applicazione Java EE multipagina completa (Servlet, DAO, Bean e JSP) basata sul rendering lato server.
 
 `javascript/`: Contiene la versione Single Page Application (SPA) che sfrutta interazioni asincrone AJAX/Fetch e la gestione dello stato lato client.

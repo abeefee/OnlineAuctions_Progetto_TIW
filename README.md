@@ -25,6 +25,8 @@ The project consists of an online auction management platform developed in two d
 
 
 ### Repository Structure
+`docs/`: Includes the project reports and original rules/specifications.
+
 `pure-html/`: Contains the complete multi-page Java EE application (Servlets, DAOs, Beans, and JSPs) implementing server-side rendering.
 
 `javascript/`: Contains the Single Page Application (SPA) version utilizing asynchronous AJAX/Fetch interactions and client-side state management.
