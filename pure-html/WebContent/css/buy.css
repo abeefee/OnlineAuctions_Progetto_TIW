@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+body{
+	text-align: center;
+}
+
+.buy-title{
+	text-align: center;
+	font-family : "Georgia";
+	color : #FF82AB;
+	font-size : 25pt;
+	margin-top : 10pt;
+	margin-bottom : 35pt;
+}
+
+.buy-div{
+	font-family : "Georgia";
+	margin-top : 100pt;
+	margin-bottom : 5pt;
+}
+
+.buy-btn{
+	font-family : "Georgia";
+	padding: .3rem 1rem;
+	font-size: 12.5pt;
+}
+
+.buy-frame{
+	text-align : center;
+	 max-width: 70%;
+	 border-radius: 40px;
+	 padding : 2rem;
+	 margin-top : 30pt;
+	 box-shadow : 0 1rem 3rem #87CEFA;
+}
+
+.cell{
+	font-family : "Georgia";
+	font-size: 12pt;
+	text-align : center;
+	width : 250px;
+	padding-right : 50px;
+}

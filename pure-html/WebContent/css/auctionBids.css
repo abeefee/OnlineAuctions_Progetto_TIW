@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.bids-div{
+	text-align:center;
+	justify-content: center;
+	align-items: center;
+	margin-top:90pt;
+}
+
+.bids-title{
+	font-family : "Georgia";
+	color : #FF82AB;
+	font-size : 25pt;
+	margin-bottom : 20pt;
+}
+
+.bids-btn{
+	font-size: 12.5pt;
+	font-family : "Georgia";
+	padding: .3rem 2rem;
+	margin-top : 5pt;
+	margin-bottom:10pt;
+}
+
+.cell{
+	font-family : "Georgia";
+	font-size: 12pt;
+	text-align : center;
+	width : 250px;
+	padding-right : 50px;
+}
+
+.bids-frame{
+	max-width: 70%;
+	border-radius: 40px;
+	padding : 2rem;
+	box-shadow : 0 1rem 3rem #87CEFA;
+	margin-bottom : 15pt;
+}

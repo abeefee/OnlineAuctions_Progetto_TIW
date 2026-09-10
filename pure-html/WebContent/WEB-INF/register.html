@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../css/style.css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" href="../css/register.css" th:href="@{/css/register.css}">
+	<title>Register page</title>
+</head>
+<body>
+	<div>
+		<div class="title register-title">Insert your data!</div>
+		<div class="frame register-frame">
+			<form method="POST" th:action="@{/Register}">
+				<div class="form-part">
+					<label>Username</label>
+					<input type="text" placeholder="Enter your username" id="username" name="username" required>
+				</div>
+				<div class="form-part">
+					<label>Password</label>
+					<input type="password" placeholder="Enter your password" id="password" name="password" required>
+				</div>
+				<div class="form-part">
+					<label>Address</label>
+					<input type="text" placeholder="Enter your address" id="address" name="address" required>
+				</div>
+				<button class="btn register-btn" type="submit">Register</button>
+			</form>
+			<hr>
+			<a th:href="@{/}">Go back to login page</a>
+		</div>
+		<div class="warning-message" th:if="${warning}">
+			<span th:text="${warning}">Data not valid!</span>
+		</div>
+	</div>
+</body>
+</html>

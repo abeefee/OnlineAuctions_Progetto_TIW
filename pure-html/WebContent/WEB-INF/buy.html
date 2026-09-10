@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="../css/style.css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" href="../css/buy.css" th:href="@{/css/buy.css}">
+	<title>Buy</title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"> </div>
+	<div align="center" class="buy-div">
+		<div class="frame buy-frame">
+			<div class="buy-title"><b>Awarded auction</b></div>
+			<th:block>
+				<div th:if="${awardedAuctions.empty}">
+					You currently haven't awarded any auction
+				</div>
+			</th:block>
+			<th:block>
+				<div th:if="${!awardedAuctions.empty}">
+					<div th:each="auction : ${awardedAuctions}">
+						<div class="simple-title">
+							Auction id: <span th:text="${auction.id_auction}"></span>
+							Price: <span th:text="${auction.price}"></span>
+						</div>
+						<br>
+						<table align="center">
+							<thead>
+								<tr>
+									<th class="cell">Id</th>
+									<th class="cell">Name</th>
+									<th class="cell">Description</th>
+									<th class="cell">Image</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="item : ${awardedItems}" th:if="${item.id_auction} == ${auction.id_auction}">
+									<td class="cell" th:text="${item.id_item}"></td>
+									<td class="cell" th:text="${item.name}"></td>
+									<td class="cell" th:text="${item.description}"></td>
+									<td class="cell"><img class="image" th:src="@{/ImageFolder/{img_name}(img_name=${item.img_name})}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</th:block>
+		</div>
+		<div class="frame buy-frame">
+			<div class="simple-title buy-title"><b>Search auctions by keyword:</b></div>
+			<form method="POST" th:action="@{/SearchByKeyword}">
+				<div class="form-part">
+					<label for="keyword"> Keyword: </label> <input type="text"
+						id="keyword" name="keyword" placeholder="Insert your key word"
+						required> <br>
+					</div>
+				<button class="btn buy-btn" type="submit">Search auctions</button>
+			</form>
+		<div th:if="${keywordAuctions != null && !keywordAuctions.empty}">
+			<br>
+			<div>Here you can find what you are looking for:</div>
+				<div th:each="auction : ${keywordAuctions}">
+					<a th:href="@{/GoToAuctionBids/?id_auction={id}(id=${auction.id_auction})}">
+						<span th:text="${auction.id_auction}"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+		</div>
+	<br>
+	</div>
+</body>

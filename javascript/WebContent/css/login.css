@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+body{
+	text-align: center;
+}
+
+.login-div{
+    max-width: 50%;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow : 0 1rem 3rem #87CEFA;
+}
+
+.register-div{
+    max-width: 50%;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow : 0 1rem 3rem #87CEFA;
+}
+
+.login-title{
+	font-size : 70pt;
+}
+
+.login-btn{
+	font-family : "Brush Script MT";
+	font-size: 25pt;
+}
+
+.register-btn{
+	font-family : "Brush Script MT";
+	font-size: 25pt;
+}
+
+.open-register-btn{
+	font-family : "Brush Script MT";
+	font-size: 20pt;
+}
+
+.register-title{
+	text-align: center;
+	font-size : 40pt;
+	margin-top : 35pt;
+	margin-bottom : 15pt;
+}
+
+.register-btn{
+	padding: .3rem 1rem;
+	font-size: 25pt;
+}
+
+.register-frame{
+	max-width: 50%;
+	border-radius: 20px;
+	margin-bottom:15pt;
+}
+
+.warning-div{
+	font-size: 25pt;
+	display: none;
+}
+
+.register-div{
+	display: none;
+}

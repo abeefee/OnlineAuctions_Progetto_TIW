@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+body{
+	text-align: center;
+}
+
+.login-div{
+    max-width: 50%;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow : 0 1rem 3rem #87CEFA;
+}
+
+.login-title{
+	font-size : 70pt;
+}
+
+.login-btn{
+	font-family : "Brush Script MT";
+	font-size: 25pt;
+}

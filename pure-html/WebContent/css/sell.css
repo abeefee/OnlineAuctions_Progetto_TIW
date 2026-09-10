@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.sell-title{
+	font-family : "Georgia";
+	color : #FF82AB;
+	font-size : 25pt;
+	margin-top : 10pt;
+	margin-bottom : 15pt;
+}
+
+.auctions-div{
+	font-family : "Georgia";
+	margin : 70px;
+}
+
+.container{
+	display:flex;
+	text-align : center;
+	justify-content: center;
+}
+
+.sell-btn{
+	font-size: 12.5pt;
+	font-family : "Georgia";
+	padding: .3rem 2rem;
+	margin-top : 5pt;
+}
+
+.sell-frame{
+	text-align : center;
+	 max-width: 70%;
+	 border-radius: 40px;
+	 padding : 2rem;
+	 margin-top : 10pt;
+	 margin-bottom : 10pt;
+	 box-shadow : 0 1rem 2rem #87CEFA;
+}

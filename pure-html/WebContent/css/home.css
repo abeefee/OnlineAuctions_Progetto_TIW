@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.home-title{
+	text-align: center;
+	font-size : 50pt;
+}
+
+
+.home-btn{
+	padding: .5rem 3rem;
+	font-size: 35pt;
+}
+
+.sell-btn{
+	font-family : "Brush Script MT";
+	padding: .7rem 7rem;
+	font-size: 45pt;
+	margin-top: 60pt;
+    margin-bottom: 10pt;
+    margin-right: 10pt;
+    box-shadow : 0 1rem 2rem #CAE1FF;
+}
+
+.buy-btn{
+	font-family : "Brush Script MT";
+	padding: .7rem 5rem;
+	font-size: 45pt;
+	margin-top: 60pt;
+    margin-bottom: 10pt;
+    margin-left:10pt;
+    box-shadow : 0 1rem 3rem #CAE1FF;
+}

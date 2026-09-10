@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="../css/style.css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" href="../css/auctionBids.css" th:href="@{/css/auctionBids.css}">
+	<title> Auction Bids </title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"> </div>
+	
+	<div class="bids-div">
+		<div class="frame bids-frame">
+			<div class="bids-title"> The auction sells these articles </div>
+			<table align="center">
+				<thead>
+					<tr>
+						<th class="cell"> Name </th>
+						<th class="cell"> Description </th>
+						<th class="cell"> Price</th>
+						<th class="cell"> image </th>
+					</tr>
+				</thead>
+				<tbody> 
+					<tr th:each="item : ${auctionItems}">
+						<td class="cell" th:text="${item.name}"></td>
+						<td class="cell" th:text="${item.description}"></td>
+						<td class="cell" th:text="${item.price}"></td>
+						<td class="cell"><img class="image" th:src="@{/ImageFolder/{img_name}(img_name=${item.img_name})}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br>
+		<div class="frame bids-frame">
+			<div class="bids-title"> Current Bids </div>
+			<table align="center">
+				<thead th:if="${!auctionBids.empty}">
+					<tr>
+						<th class="cell"> Id User </th>
+						<th class="cell"> Price </th>
+						<th class="cell"> Date </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${auctionBids.empty}">
+						<td colspan = "3"> This auction doesn't have any bids yet. </td>
+					</tr>
+					<tr th:each="bid : ${auctionBids}">
+						<td class="cell" th:text="${bid.id_user}"></td>
+						<td class="cell" th:text="${bid.price}"></td>
+						<td class="cell" th:text="${bid.date}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br>
+		<div class="frame bids-frame">
+			<div class="bids-title"> Insert your offer </div>
+			<div class="simple-write">Minimum bid is <span th:text="${minBid}"></span></div>
+			<form method="POST" th:action="@{/RegisterBid}">
+				<div class="form-part">
+					<label for="price">Price: </label>
+					<input type="number" id="price" name="price" required>
+					<input type="hidden" id="id_auction" name="id_auction" th:value="${id_auction}">
+				</div>
+				<br>
+				<button class="btn bids-btn" type="submit"> Make your offer </button>
+			</form>
+			<div class="warning-message" th:if="${warning}">
+				<span th:text="${warning}"></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

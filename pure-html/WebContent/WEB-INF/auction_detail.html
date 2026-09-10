@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="../css/style.css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" href="../css/auctionDetail.css" th:href="@{/css/auctionDetail.css}">
+	<title> Auction Details </title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"> </div>
+
+	<div class="detail-div frame detail-frame">
+	<h3 class="detail-title"> Auction detail </h3>
+		<table align="center">
+			<thead>
+				<tr>
+					<th class="cell"> Id </th>
+					<th class="cell" > Starting bid </th>
+					<th class="cell" > Bid increment </th>
+					<th class="cell" > Closing date </th>
+					<th class="cell" > Auction state </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="cell" th:text="${auction.id_auction}"></td>
+					<td class="cell" th:text="${auction.starting_bid}"></td>
+					<td class="cell" th:text="${auction.bid_increment}"></td>
+					<td class="cell" th:text="${auction.closing_date}"></td>
+					<td class="cell" th:text="${auction.auction_state}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<div class="frame detail-frame" th:if="${auction.auction_state == 'opened'}">
+		<h3 class="detail-title"> Bid summary </h3>
+		<table align="center">
+			<thead>
+				<tr>
+					<th class="cell" > Id user </th>
+					<th class="cell" > Price </th>
+					<th class="cell" > Timestamp </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${bids.empty}">
+					<td class="cell" colspan = "4"> No bid </td>
+				</tr>
+				<tr th:each="bid : ${bids}">
+					<td class="cell" th:text="${bid.id_user}"></td>
+					<td class="cell" th:text="${bid.price}"></td>
+					<td class="cell" th:text="${bid.date}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<form th:action="@{/CloseAuction}" method="post">
+		    <input type="hidden" name="id_auction" th:value="${auction.id_auction}">
+		    <button class="btn detail-btn" type="submit">Chiudi asta</button>
+		</form>
+		<div class="warning-message" th:if="${warning}">
+			<span th:text="${warning}">Data not valid!</span>
+		</div>
+	</div>
+	<th:block>
+		<div class="frame detail-frame" th:if="${auction.auction_state == 'closed' && buyer != null}">
+			<h3 class="detail-title"> Buyer data </h3>
+			<table align="center">
+				<thead>
+					<tr>
+						<th class="cell" > Id </th>
+						<th class="cell" > Username </th>
+						<th class="cell" > Address </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="cell" th:text="${buyer.id_user}"></td>
+						<td class="cell" th:text="${buyer.username}"></td>
+						<td class="cell" th:text="${buyer.address}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</th:block>
+	<br>
+	<th:block>
+		<div class="subtitle" th:if="${buyer == null}">
+			The auction has not been sold.
+		</div>
+	</th:block>
+</body>
+</html>

@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+a {
+    color: #87CEFA;
+    font-family : "Brush Script MT";
+    font-size : 20pt;
+    text-decoration: none;
+}
+
+hr{
+	height: 2px;
+    background-color: #87CEFA;
+    border: none;
+	margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/*header*/
+
+.header-div{
+	position: absolute;
+	right: 1rem;
+    top: 1rem;
+	min-width: 150px; 
+	height: 60pt; 
+	border-radius: 20px;
+    text-align: center; 
+    padding: 0.5rem;
+}
+
+.header-frame{
+	border: solid 2px #FF82AB; 
+}
+
+.header-buttons{
+	position: absolute;
+	left: 1rem;
+    top: 1rem;
+	min-width: 150px; 
+	height: 60pt; 
+	border-radius: 20px;
+    text-align: center; 
+    padding: 0.5rem;
+}
+
+.header-title{
+	color: #87CEFA;
+    font-family : "Brush Script MT";
+    font-size : 25pt;
+    text-decoration: none;
+}
+
+.header-subtitle{
+	font-family : "Georgia";
+    font-size: 10pt;
+}
+
+/*title*/
+
+.title{
+	font-family : "Brush Script MT";
+	color : #FF82AB;
+}
+
+.subtitle{
+	font-family : "Georgia";
+	font-weight: 500;
+    font-size: 20pt;
+    line-height: 20pt;
+    margin-top: 10pt;
+    margin-bottom:20pt;
+}
+
+.simple-title{
+	font-family : "Georgia";
+	color : #FF82AB;
+	font-size: 20pt;
+}
+
+.simple-write{
+	font-family : "Georgia";
+	font-size: 15pt;
+	margin-bottom : 10pt;
+}
+
+/*buttons*/
+
+.btn{
+    text-align: center;
+    font-weight: 500;
+    border-style: solid;
+    color: #fff;
+    background-color: #87CEFA;
+    border-color: #87CEFA;
+    cursor: pointer;
+    padding: .3rem 1rem;
+}
+
+.btn:hover{
+	background-color : #C6E2FF;
+	border-color : #C6E2FF;
+}
+
+.simple-btn{
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+	color: #87CEFA;
+    font-family : "Brush Script MT";
+    font-size : 24pt;
+    text-decoration: none;
+}
+
+/*forms*/
+
+.form-part{
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+}
+
+.form-part > input {
+    padding: 0.5rem;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #d1d3e2;
+    color: #6e707e;
+    background-color: #fff;
+    font-weight: 400;
+    line-height: 1.5; /* 1.5 times the font size */
+    width: 80%;
+}
+.form-part > label {
+    padding: 0.5rem;
+    border-radius: 5px 0 0 5px;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap; /* no new line for white spaces */
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-right: 0; /* reset border right, as input's one is already present */
+    font-weight: 400;
+    font-size: 1rem;
+    width: 20%;
+}
+
+/*frames*/
+
+.frame{
+    margin: 0 auto;
+    border: solid #FF82AB;
+}
+
+
+.warning-message{
+    color: #e74a3b;
+    font-weight: 700;
+    margin-top:10pt;
+    font-family : "Georgia";
+	font-size: 15pt;
+}
+
+/*image*/
+
+.image{
+	width: 150px;
+	height:100px;
+}

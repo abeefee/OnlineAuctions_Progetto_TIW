@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="../css/style.css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" href="../css/sell.css" th:href="@{/css/sell.css}">
+	<title> Sell </title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"> </div>
+	<div class="container">
+		<div class="auctions-div">
+			<h3 class="sell-title"> Open Auctions </h3>
+				<div>
+					<div th:if="${openedAuctions.empty}">
+						<div> No opened auctions </div>
+					</div>
+					<div th:each="auction : ${openedAuctions}">
+						<a th:href="@{/GoToAuctionDetail/?id_auction={id}(id=${auction.id_auction})}">
+							<span th:text="${auction.id_auction}"></span>
+						</a>
+						<table align="center">
+							<tbody>
+								<tr th:each="itemX : ${itemsOfAuctions}" th:if="${itemX.id_auction} == ${auction.id_auction}">
+									<td> ID Item: </td>
+									<td th:text="${itemX.id_item}"></td>
+									<td> Name: </td>
+									<td th:text="${itemX.name}"></td>
+								</tr>
+							</tbody>
+						</table>
+						<div th:each="bid : ${maxBids}" th:if="${bid.id_auction} == ${auction.id_auction}">
+							Max offer: <span th:text="${bid.price}"></span>
+						</div>
+						<div>Remaining time: 
+							<span th:each="dateDays : ${dateDays}" th:if="${dateDays.key.id_auction} == ${auction.id_auction}" th:text="${dateDays.value}"></span> 
+							days and
+							<span th:each="dateHours : ${dateHours}" th:if="${dateHours.key.id_auction} == ${auction.id_auction}" th:text="${dateHours.value}"></span>
+							hours
+						</div>
+						<div> Closing date: <span th:text="${auction.closing_date}"></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="auctions-div">
+				<h3 class="sell-title"> Closed Auctions </h3>
+				<div>
+					<div th:if="${closedAuctions.empty}">
+						<div> No closed auctions </div>
+					</div>
+					<div th:each="auction : ${closedAuctions}">
+						<a th:href="@{/GoToAuctionDetail/?id_auction={id}(id=${auction.id_auction})}">
+							<span th:text="${auction.id_auction}"></span>
+						</a>
+						<table>
+							<tbody>
+								<tr th:each="itemX : ${itemsOfAuctions}" th:if="${itemX.id_auction} == ${auction.id_auction}">
+									<td> Item ID: </td>
+									<td th:text="${itemX.id_item}"></td>
+									<td> Name: </td>
+									<td th:text="${itemX.name}"></td>
+								</tr>
+							</tbody>
+						</table>
+						<div th:each="bid : ${maxBids}" th:if="${bid.id_auction} == ${auction.id_auction}">
+							<div> Sold for: <span th:text="${bid.price}"></span></div>
+						</div>
+						<div> Closing date: <span th:text="${auction.closing_date}"></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<br>
+	<hr>
+	<br>	
+	<div class="frame sell-frame">	
+		<h3 class="sell-title"> Post new item </h3>
+		<form method="POST" enctype='multipart/form-data' th:action="@{/CreateItem}">
+			<div class="form-part">
+				<label> Name </label>
+				<input placeholder="Enter the item name" id="name" name="name" required>
+			</div>
+			<div class="form-part">
+				<label> Description </label>
+				<input placeholder="Enter a description of the item" id="description" name="description" required>
+			</div>
+			<div class="form-part">
+				<label> Price </label>
+				<input placeholder="Enter the item price" id="price" name="price" required>
+			</div>
+			<div class="form-part">
+				<label> Image </label>
+				<input type="file" id="image" name="image" required>
+			</div>
+			<button class="btn sell-btn" type="submit"> Create new item </button>
+		</form>
+		<br>
+	</div>
+	<br>
+	<div class="frame sell-frame">
+		<h3 class="sell-title"> Create new auction </h3>
+		<form method="POST" th:action="@{/CreateAuction}">
+			<div class="form-part">
+				<label for="bid_increment">Bid increment: </label>
+				<input type="number" id="bid_increment" name="bid_increment" required>
+				<br>
+			</div>
+			<div class="form-part">
+				<label for="closing_date">Closing date: </label>
+				<input type="date" id="closing_date" name="closing_date" required>
+				<br>
+			</div>
+			<div class="form-part" th:each="item : ${notAuctionedItems}">
+				<label th:for="item" th:text="${item.name}"></label>
+				<input type="checkbox" id="item" name="ids_item" th:value="${item.id_item}">
+			</div>
+			<br>
+			<button class="btn sell-btn" type="submit"> Create new auction </button>
+		</form>
+	</div>
+</body>
+</html>

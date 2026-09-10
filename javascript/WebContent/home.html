@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+    <script src="js/auction_house.js" charset="utf-8" defer></script>
+	<script src="js/utils.js" charset="utf-8" defer></script>
+	<title>Homepage</title>
+</head>
+<body>
+	<!-- Header -->
+	<div class="header-div header-frame">
+		<div class="header-title">Hello </div>
+		<div class="header-subtitle">
+			User: <b><span id="usernameHeader"></span></b><br>
+			Personal code: <b><span id="idUserHeader"></span></b>
+		</div>
+	</div>
+	<div class="header-buttons header-frame">
+		<div class="header-title">
+			<a id="logout-button" href="Logout">Log out</a>
+		</div>
+	</div>
+	
+	<!-- Titolo -->
+	<div class="title home-title">Welcome to your home <span id="username"></span></div>
+	
+	<!-- Menu -->
+	<div class="menu">
+		<a id="buy_button" href="#">Buy</a>
+		<a id="sell_button" href="#">Sell</a>
+	</div>
+	
+	<!-- Acquisto -->
+	<div align="center" id="buy-div">
+		<!-- Aste visitate -->
+		<div class="buy-div">
+			<div class="frame buy-frame">
+				<div class="buy-title"><b>Last visited auctions</b></div>
+				<div id="lastVisitedAuctionsId-container" align="center"></div>
+				<div id="lastVisitedWarning-container" align="center"></div>
+				<div id="fastAuctionBids-container" align="center">
+					<div id="fastAuctionItems-container"></div>
+					<br>
+					<div id="fastCurrentBids-container"></div>
+					<br>
+					<div id="fastOfferForm-container">
+						<div class="bids-title">Insert your offer</div>
+						<div><span id="fastMinimumOffer"></span></div>
+						<form action="#">
+							<div class="form-part">
+								<label for="price">Price:</label>
+								<input type="number" name="price" id="price">
+								<input type="hidden" id="fastOfferForm-id_auction" name="id_auction">
+							</div>
+							<input id="fastPlaceBid-button" class="btn bids-btn" type="button" value="Make your offer"/>
+						</form>
+						<div id="fastPlaceBid-warning" class="warning-message"><br>Warning message!</div>
+					</div>
+				</div>
+				<div id="fastAuctionBids-warning" class="warning-message">Warning message!</div>
+			</div>
+		</div>
+		<!-- Aste vinte -->
+		<div class="buy-div">
+			<div class="frame buy-frame">
+				<div class="buy-title"><b>Awarded auction</b></div>
+				<div id="awardedAuctions-container" align="center"></div>
+			</div>
+		</div>
+		<!-- Form ricerca aste -->
+		<div class="buy-div">
+			<div class="frame buy-frame">
+				<div class="buy-title"><b>Search auctions by keyword:</b></div>
+				<form action="#">
+					<div class="form-part">
+						<label for="keyword"> Keyword: </label> 
+						<input type="text" id="keyword" name="keyword" placeholder="Insert your key word" required> <br>
+					</div>
+					<input id="searchAuctions-button" class="btn buy-btn" type="button" value="Search auctions"/>
+				</form>
+				<div>
+					<div id="searchedAuctions-container" align="center"></div>
+				</div>
+				<div id="searchAuctions-warning" class="warning-message">Warning message!</div>
+				<div id="auctionBids-container" align="center">
+					<div id="auctionItems-container"></div>
+					<br>
+					<div id="currentBids-container"></div>
+					<br>
+					<div id="offerForm-container">
+						<div class="bids-title">Insert your offer</div>
+						<div><span id="minimumOffer"></span></div>
+						<form action="#">
+							<div class="form-part">
+								<label for="price">Price:</label>
+								<input type="number" name="price" id="price">
+								<input type="hidden" id="offerForm-id_auction" name="id_auction">
+							</div>
+							<input id="placeBid-button" class="btn bids-btn" type="button" value="Make your offer"/>
+						</form>
+						<div id="placeBid-warning" class="warning-message"><br>Warning message!</div>
+					</div>
+				</div>
+				<div id="auctionBids-warning" class="warning-message">Warning message!</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Vendo -->
+	<div align="center" id="sell-div">
+		<!-- Aste aperte -->
+		<div class="sell-div">
+			<div class="frame buy-frame">
+				<div class="buy-title"><b>Open Auctions</b></div>
+				<div id="openedAuctions-container" align="center"></div>
+				<div align="center">
+					<div id="openedAuctionDetails-container">
+						<div id="openedAuctionDetails"></div>
+						<div id="openedAuctionItems"></div>
+						<div id="openedAuctionBids"></div>
+						<form action="#">
+							<input type="hidden" id="closeForm-id_auction" name="id_auction">
+							<input id="closeAuction-button" class="btn bids-btn" type="button" value="Close auction"/>
+						</form>
+						<div id="closeAuction-warning" class="warning-message"><br>Warning message!</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Aste chiuse -->
+		<div class="sell-div">
+			<div class="frame buy-frame">
+				<div class="buy-title"><b>Closed Auctions</b></div>
+				<div id="closedAuctions-container" align="center"></div>
+				<div align="center">
+					<div id="closedAuctionDetails-container">
+						<div id="closedAuctionDetails"></div>
+						<div id="closedAuctionItems"></div>
+						<div id="closedAuctionBuyer"></div>
+						<div id="closedAuction-warning" class="warning-message">Warning message!</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Vendita item -->
+		<div id="sellItem-container" class="sell-div frame sell-frame">
+			<h3 class="sell-title"> Post new item </h3>
+				<div id="sellItem-form">
+				<form action="#">
+					<div class="form-part">
+						<label> Name </label>
+						<input placeholder="Enter the item name" id="name" name="name" required>
+					</div>
+					<div class="form-part">
+						<label> Description </label>
+						<input placeholder="Enter a description of the item" id="description" name="description" required>
+					</div>
+					<div class="form-part">
+						<label> Price </label>
+						<input placeholder="Enter the item price" id="price" name="price" required>
+					</div>
+					<div class="form-part">
+						<label> Image </label>
+						<input type="file" id="image" name="image" required>
+					</div>
+					<input id="sellItem-button" class="btn sell-btn" type="button" value="Post new Item"/>
+				</form>
+				<div id="sellItem-warning" class="warning-message">Warning message!</div>
+			</div>
+		</div>
+		<!-- Vendita aste -->
+		<div id="sellAuction-container" class="sell-div frame sell-frame">
+			<h3 class="sell-title"> Create new auction </h3>
+			<form action="#">
+				<div class="form-part">
+					<label for="bid_increment">Bid increment: </label>
+					<input type="number" id="bid_increment" name="bid_increment" required>
+					<br>
+				</div>
+				<div class="form-part">
+					<label for="closing_date">Closing date: </label>
+					<input type="date" id="closing_date" name="closing_date" required>
+					<br>
+				</div>
+				<div id="itemToSell-container"></div>
+				<br>
+				<input id="sellAuction-button" class="btn sell-btn" type="button" value="Create new auction"/>
+			</form>
+			<div id="sellAuction-warning" class="warning-message"><br>Warning message!</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="../css/style.css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" href="../css/home.css" th:href="@{/css/home.css}">
+	<title>Home page</title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"> </div>
+	
+	<h1 class="title home-title">Hello user <span th:text="${session.user.username}"></span>, here you are! </h1>
+	<hr>
+	<div align="center">
+		<table>
+			<tr>
+				<td>
+					<form method="GET" th:action="@{/GoToBuy}">
+						<button class="btn buy-btn" type = "submit">Buy   </button>
+					</form>
+				</td>
+				<td>
+					<form method="GET" th:action="@{/GoToSell}">
+						<button class="btn sell-btn" type = "submit">Sell</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<br>
+</body>
+</html>
