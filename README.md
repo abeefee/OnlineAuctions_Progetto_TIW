@@ -2,7 +2,7 @@
 
 *Puoi anche leggerlo in [Italiano](README.it.md)*
 
-> **Academic Note:** This project was developed for the *Tecnologie Informatiche per il Web* course at Politecnico di Milano (Academic Year 2022/23), achieving a final grade of **27/30**.
+> **Academic Note:** This project was developed for the *Tecnologie Informatiche per il Web* course at Politecnico di Milano (Academic Year 2022/23), by Alberto Biffi and Silvia Firenze achieving a final grade of **27/30**.
 
 ### Project Description
 The project consists of an online auction management platform developed in two distinct, complete web application versions:

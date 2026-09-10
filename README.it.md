@@ -2,7 +2,7 @@
 
 *You can read this also in [English](README.md)*
 
-> **Nota Accademica:** Questo progetto è stato sviluppato per il corso di *Tecnologie Informatiche per il Web* del Politecnico di Milano (Anno Accademico 2022/23), ottenendo una valutazione finale di **27/30**.
+> **Nota Accademica:** Questo progetto è stato sviluppato per il corso di *Tecnologie Informatiche per il Web* del Politecnico di Milano (Anno Accademico 2022/23), da Alberto Biffi e Silvia Firenze ottenendo una valutazione finale di **27/30**.
 
 ### Project Description
 Il progetto implementa una piattaforma di gestione per aste online sviluppata in due versioni distinte e complete di applicazione web:
